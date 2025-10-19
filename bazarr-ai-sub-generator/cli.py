@@ -87,7 +87,14 @@ def main():
         default="auto",
         choices=LANGUAGE_CODES,
         help="What is the origin language of the video? \
-                              If unset, it is detected automatically.",
+                               If unset, it is detected automatically.",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help="Number of concurrent workers for processing episodes. \
+                               Increase for better CUDA utilization with multiple episodes.",
     )
 
     args = parser.parse_args().__dict__
